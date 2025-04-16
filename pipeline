@@ -1,0 +1,54 @@
+///  java login page code is devloped by devloper ///
+import javax.swing.*;
+import java.awt.event.*;
+
+public class LoginPage {
+    public static void main(String[] args) {
+        // Create Frame
+        JFrame frame = new JFrame("Login Page");
+        frame.setSize(350, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // Username Label and Field
+        JLabel userLabel = new JLabel("Username:");
+        userLabel.setBounds(20, 30, 80, 25);
+        frame.add(userLabel);
+
+        JTextField userText = new JTextField();
+        userText.setBounds(100, 30, 200, 25);
+        frame.add(userText);
+
+        // Password Label and Field
+        JLabel passLabel = new JLabel("Password:");
+        passLabel.setBounds(20, 70, 80, 25);
+        frame.add(passLabel);
+
+        JPasswordField passText = new JPasswordField();
+        passText.setBounds(100, 70, 200, 25);
+        frame.add(passText);
+
+        // Login Button
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(120, 110, 100, 30);
+        frame.add(loginButton);
+
+        // Button action
+        loginButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String user = userText.getText();
+                String pass = new String(passText.getPassword());
+
+                // Hardcoded username and password
+                if (user.equals("admin") && pass.equals("password")) {
+                    JOptionPane.showMessageDialog(frame, "Login successful!");
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Invalid username or password.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+
+        // Set Frame Visible
+        frame.setVisible(true);
+    }
+}
